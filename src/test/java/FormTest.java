@@ -1,8 +1,10 @@
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.annotations.Test;
 
+import java.io.File;
 import java.util.List;
 import java.util.Random;
 
@@ -41,7 +43,15 @@ public class FormTest extends TestBase{
         Select continentsSelect = new Select(driver.findElement(By.id("selectContinents")));
         continentsSelect.selectByValue("europe");
 
+        Select seleniumCommandsSelect  = new Select(driver.findElement(By.id("selectSeleniumCommands")));
+        seleniumCommandsSelect.selectByValue("navigation-commands");
+        seleniumCommandsSelect.selectByValue("wait-commands");
+
+
+        File file = new File("src/main/resources/file.txt");
+        driver.findElement(By.id("chooseFile")).sendKeys(file.getAbsolutePath());
     }
+
 
     public WebElement getRandomElement(List<WebElement> elements){
         Random random = new Random();
