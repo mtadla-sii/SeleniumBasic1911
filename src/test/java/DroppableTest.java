@@ -4,10 +4,10 @@ import org.openqa.selenium.interactions.Actions;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-public class DroppableTest extends TestBase{
+public class DroppableTest extends TestBase {
 
     @Test
-    public void shouldDragAndDrop(){
+    public void shouldDragAndDrop() {
         driver.get("http://51.75.61.161:9102/droppable.php");
 
         WebElement draggable = driver.findElement(By.id("draggable"));
@@ -16,6 +16,39 @@ public class DroppableTest extends TestBase{
         Actions actions = new Actions(driver);
 
         actions.dragAndDrop(draggable, droppable)
+                .perform();
+
+        Assert.assertEquals(droppable.getText(), "Dropped!");
+    }
+
+    @Test
+    public void shouldDragAndDrop2() {
+        driver.get("http://51.75.61.161:9102/droppable.php");
+
+        WebElement draggable = driver.findElement(By.id("draggable"));
+        WebElement droppable = driver.findElement(By.id("droppable"));
+
+        Actions actions = new Actions(driver);
+
+        actions.clickAndHold(draggable)
+                .moveToElement(droppable)
+                .release()
+                .perform();
+
+        Assert.assertEquals(droppable.getText(), "Dropped!");
+    }
+
+    @Test
+    public void shouldDragAndDrop3() {
+        driver.get("http://51.75.61.161:9102/droppable.php");
+
+        WebElement draggable = driver.findElement(By.id("draggable"));
+        WebElement droppable = driver.findElement(By.id("droppable"));
+
+        Actions actions = new Actions(driver);
+
+        actions.clickAndHold(draggable)
+                .release(droppable)
                 .perform();
 
         Assert.assertEquals(droppable.getText(), "Dropped!");
