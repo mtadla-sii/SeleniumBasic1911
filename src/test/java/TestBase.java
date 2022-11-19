@@ -5,6 +5,8 @@ import org.openqa.selenium.chrome.ChromeOptions;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 
+import java.time.Duration;
+
 public class TestBase {
     public WebDriver driver;
 
@@ -16,6 +18,8 @@ public class TestBase {
         options.addArguments("start-maximized");
 
         driver = new ChromeDriver(options);
+        // on powinien byc tutaj ale jest zakomentowany aby specjalnie nie wplywal na testy
+//        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
     }
 
     @AfterMethod

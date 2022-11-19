@@ -1,3 +1,4 @@
+import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.testng.Assert;
 import org.testng.annotations.Test;
@@ -27,6 +28,14 @@ public class AlertsTests extends TestBase {
     public void shouldFillPromptAlert(){
         driver.get("http://51.75.61.161:9102/alerts.php");
 
+        String name = "Mateusz";
 
+        driver.findElement(By.id("prompt-alert")).click();
+
+        driver.switchTo().alert().sendKeys(name);
+        driver.switchTo().alert().accept();
+
+        String alertMsg = driver.findElement(By.id("prompt-label")).getText();
+        Assert.assertEquals(alertMsg, "Hello "+ name+ "! How are you today?");
     }
 }
