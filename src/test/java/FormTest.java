@@ -1,5 +1,6 @@
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.Select;
 import org.testng.annotations.Test;
 
 import java.util.List;
@@ -32,6 +33,14 @@ public class FormTest extends TestBase{
 //        opcja losująca element z listy w 2 linijkach
         List<WebElement> allGenders = driver.findElements(By.name("gridRadiosSex"));
         getRandomElement(allGenders).click();
+
+        getRandomElement(driver.findElements(By.name("gridRadiosExperience"))).click();
+        getRandomElement(driver.findElements(By.name("gridCheckboxProfession"))).click();
+
+
+        Select continentsSelect = new Select(driver.findElement(By.id("selectContinents")));
+        continentsSelect.selectByValue("europe");
+
     }
 
     public WebElement getRandomElement(List<WebElement> elements){
