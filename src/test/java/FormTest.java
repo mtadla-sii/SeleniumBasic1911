@@ -2,6 +2,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
+import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import java.io.File;
@@ -50,6 +51,11 @@ public class FormTest extends TestBase{
 
         File file = new File("src/main/resources/file.txt");
         driver.findElement(By.id("chooseFile")).sendKeys(file.getAbsolutePath());
+
+        driver.findElement(By.className("btn-primary")).click();
+
+        String validatorMsg = driver.findElement(By.id("validator-message")).getText();
+        Assert.assertEquals(validatorMsg, "Form send with success");
     }
 
 
