@@ -1,4 +1,5 @@
 import enums.Gender;
+import org.testng.Assert;
 import org.testng.annotations.Test;
 import pages.FormPage;
 
@@ -20,11 +21,23 @@ public class FormPopTest extends TestBase {
         formPage.selectRandomProfession();
         formPage.selectContinent("europe");
 
-        String[] commands = {"navigation-commands" ,"wait-commands"};
-        formPage.selectSeleniumCommands(commands);
+        formPage.selectSeleniumCommands(new String[]{"navigation-commands" ,"wait-commands"});
 
         File file = new File("src/main/resources/file.txt");
         formPage.uploadFile(file);
+
+
+
+
+
+
+
+
+
+
+
+        Assert.assertEquals(formPage.getValidatorMsg(), "Form send with success");
+
 
     }
 }

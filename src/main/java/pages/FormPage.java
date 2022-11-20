@@ -44,6 +44,28 @@ public class FormPage {
     private WebElement fileInput;
 
 
+
+
+
+
+
+    @FindBy(id = "validator-message")
+    private WebElement validatorLabel;
+
+    public String getValidatorMsg(){
+        return validatorLabel.getText();
+    }
+
+
+
+
+
+
+
+
+
+
+
     public void uploadFile(File file){
         fileInput.sendKeys(file.getAbsolutePath());
     }
