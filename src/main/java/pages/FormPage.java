@@ -50,53 +50,60 @@ public class FormPage {
     @FindBy(id = "validator-message")
     private WebElement validatorLabel;
 
-
-    public void sendForm() {
-        sendFormBtn.click();
-    }
-
     public String getValidatorMsg() {
         return validatorLabel.getText();
     }
 
+    public FormPage sendForm() {
+        sendFormBtn.click();
+        return this;
+    }
 
-    public void uploadFile(File file) {
+    public FormPage uploadFile(File file) {
         fileInput.sendKeys(file.getAbsolutePath());
+        return this;
     }
 
 
-    public void selectContinent(String continentValue) {
+    public FormPage selectContinent(String continentValue) {
         new Select(continentsSelect).selectByValue(continentValue);
+        return this;
     }
 
-    public void selectSeleniumCommands(String command) {
+    public FormPage selectSeleniumCommands(String command) {
         new Select(selectSeleniumCommands).selectByValue(command);
+        return this;
     }
 
-    public void selectSeleniumCommands(String[] commands) {
+    public FormPage selectSeleniumCommands(String[] commands) {
         for (String command : commands) {
             selectSeleniumCommands(command);
         }
+        return this;
     }
 
 
-    public void selectRandomGender() {
+    public FormPage selectRandomGender() {
         getRandomElement(allGenders).click();
+        return this;
     }
 
-    public void selectRandomExperience() {
+    public FormPage selectRandomExperience() {
         getRandomElement(experience).click();
+        return this;
     }
 
-    public void selectRandomProfession() {
+    public FormPage selectRandomProfession() {
         getRandomElement(professions).click();
+        return this;
     }
 
-    public void selectMale() {
+    public FormPage selectMale() {
         allGenders.get(0).click();
+        return this;
     }
 
-    public void selectGender(Gender gender) {
+    public FormPage selectGender(Gender gender) {
         switch (gender) {
             case MALE:
                 allGenders.get(0).click();
@@ -108,7 +115,7 @@ public class FormPage {
                 allGenders.get(2).click();
                 break;
         }
-
+        return this;
     }
 
 
@@ -119,20 +126,24 @@ public class FormPage {
     }
 
 
-    public void setFirstName(String name) {
+    public FormPage setFirstName(String name) {
         firstNameInput.sendKeys(name);
+        return this;
     }
 
-    public void setLastName(String lastName) {
+    public FormPage setLastName(String lastName) {
         lastNameInput.sendKeys(lastName);
+        return this;
     }
 
-    public void setEmail(String email) {
+    public FormPage setEmail(String email) {
         emailInput.sendKeys(email);
+        return this;
     }
 
-    public void setAge(int age) {
+    public FormPage setAge(int age) {
         // 5 -> "5"
         ageInput.sendKeys(String.valueOf(age));
+        return this;
     }
 }

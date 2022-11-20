@@ -1,11 +1,13 @@
 import enums.Gender;
 import org.testng.Assert;
+
 import org.testng.annotations.Test;
 import pages.FormPage;
 
 import java.io.File;
 
 public class FormPopTest extends TestBase {
+
     @Test
     public void shouldFillFormWithSuccess() {
         driver.get("http://51.75.61.161:9102/form.php");

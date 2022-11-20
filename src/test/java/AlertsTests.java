@@ -25,11 +25,6 @@ public class AlertsTests extends TestBase {
     }
 
 
-    public boolean iuahsdiuhasd(){
-        return true;
-    }
-
-
     @Test
     public void shouldAcceptAlert(){
         driver.get("http://51.75.61.161:9102/alerts.php");
