@@ -17,7 +17,7 @@ public class AlertsTests extends TestBase {
 
         // tutaj bedzie trzeba wstawic waita
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-        wait.until(ExpectedConditions.XXXXXXX);
+        wait.until(ExpectedConditions.alertIsPresent());
 
         driver.switchTo().alert().accept();
 
