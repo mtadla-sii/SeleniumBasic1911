@@ -18,13 +18,16 @@ public class AlertsTests extends TestBase {
         // tutaj bedzie trzeba wstawic waita
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         wait.until(ExpectedConditions.alertIsPresent());
-
         driver.switchTo().alert().accept();
 
         String alertMsg = driver.findElement(By.cssSelector("#delayed-alert-label")).getText();
         Assert.assertEquals(alertMsg, "OK button pressed");
     }
 
+
+    public boolean iuahsdiuhasd(){
+        return true;
+    }
 
 
     @Test
