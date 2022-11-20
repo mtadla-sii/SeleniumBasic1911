@@ -2,6 +2,8 @@ import enums.Gender;
 import org.testng.annotations.Test;
 import pages.FormPage;
 
+import java.io.File;
+
 public class FormPopTest extends TestBase {
     @Test
     public void shouldFillFormWithSuccess() {
@@ -20,6 +22,9 @@ public class FormPopTest extends TestBase {
 
         String[] commands = {"navigation-commands" ,"wait-commands"};
         formPage.selectSeleniumCommands(commands);
+
+        File file = new File("src/main/resources/file.txt");
+        formPage.uploadFile(file);
 
     }
 }

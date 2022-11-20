@@ -7,6 +7,7 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.Select;
 
+import java.io.File;
 import java.util.List;
 import java.util.Random;
 
@@ -38,6 +39,24 @@ public class FormPage {
 
     @FindBy(id = "selectSeleniumCommands")
     private WebElement selectSeleniumCommands;
+
+    @FindBy(id = "chooseFile")
+    private WebElement fileInput;
+
+
+    public void uploadFile(File file){
+        fileInput.sendKeys(file.getAbsolutePath());
+    }
+
+
+
+
+
+
+
+
+
+
 
     public void selectContinent(String continentValue){
         new Select(continentsSelect).selectByValue(continentValue);
