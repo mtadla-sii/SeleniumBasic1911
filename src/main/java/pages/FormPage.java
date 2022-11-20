@@ -1,9 +1,11 @@
 package pages;
 
+import enums.Gender;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.Select;
 
 import java.util.List;
 import java.util.Random;
@@ -12,6 +14,7 @@ public class FormPage {
     public FormPage(WebDriver driver) {
         PageFactory.initElements(driver, this);
     }
+
     @FindBy(id = "inputFirstName3")
     private WebElement firstNameInput;
     @FindBy(id = "inputLastName3")
@@ -30,29 +33,57 @@ public class FormPage {
     @FindBy(name = "gridCheckboxProfession")
     private List<WebElement> professions;
 
-    public void selectRandomGender(){
+
+    @FindBy(id = "selectContinents")
+    private WebElement continentsSelect;
+
+    public void selectContinent(String continentValue){
+        new Select(continentsSelect).selectByValue(continentValue);
+    }
+
+
+
+
+
+
+
+    public void selectRandomGender() {
         getRandomElement(allGenders).click();
     }
 
-    public void selectRandomExperience(){
+    public void selectRandomExperience() {
         getRandomElement(experience).click();
     }
 
-    public void selectRandomProfession(){
+    public void selectRandomProfession() {
         getRandomElement(professions).click();
     }
 
-    public void selectMale(){
+    public void selectMale() {
         allGenders.get(0).click();
     }
 
+    public void selectGender(Gender gender) {
+        switch (gender) {
+            case MALE:
+                allGenders.get(0).click();
+                break;
+            case FEMALE:
+                allGenders.get(1).click();
+                break;
+            case OTHER:
+                allGenders.get(2).click();
+                break;
+        }
 
-    public WebElement getRandomElement(List<WebElement> elements){
+    }
+
+
+    public WebElement getRandomElement(List<WebElement> elements) {
         Random random = new Random();
         int randomIndex = random.nextInt(elements.size());
         return elements.get(randomIndex);
     }
-
 
 
     public void setFirstName(String name) {

@@ -1,3 +1,4 @@
+import enums.Gender;
 import org.testng.annotations.Test;
 import pages.FormPage;
 
@@ -12,9 +13,10 @@ public class FormPopTest extends TestBase {
         formPage.setLastName("Kowalski");
         formPage.setEmail("j.k@wp.pl");
         formPage.setAge(40);
-        formPage.selectMale();
+        formPage.selectGender(Gender.MALE);
         formPage.selectRandomExperience();
         formPage.selectRandomProfession();
+        formPage.selectContinent("europe");
 
     }
 }
