@@ -33,12 +33,24 @@ public class FormPage {
     @FindBy(name = "gridCheckboxProfession")
     private List<WebElement> professions;
 
-
     @FindBy(id = "selectContinents")
     private WebElement continentsSelect;
 
+    @FindBy(id = "selectSeleniumCommands")
+    private WebElement selectSeleniumCommands;
+
     public void selectContinent(String continentValue){
         new Select(continentsSelect).selectByValue(continentValue);
+    }
+
+    public void selectSeleniumCommands(String command){
+        new Select(selectSeleniumCommands).selectByValue(command);
+    }
+
+    public void selectSeleniumCommands(String[] commands){
+        for (String command : commands){
+            selectSeleniumCommands(command);
+        }
     }
 
 

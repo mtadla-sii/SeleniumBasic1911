@@ -18,5 +18,8 @@ public class FormPopTest extends TestBase {
         formPage.selectRandomProfession();
         formPage.selectContinent("europe");
 
+        String[] commands = {"navigation-commands" ,"wait-commands"};
+        formPage.selectSeleniumCommands(commands);
+
     }
 }
