@@ -24,8 +24,22 @@ public class FormPage {
     @FindBy(name = "gridRadiosSex")
     private List<WebElement> allGenders;
 
+    @FindBy(name = "gridRadiosExperience")
+    private List<WebElement> experience;
+
+    @FindBy(name = "gridCheckboxProfession")
+    private List<WebElement> professions;
+
     public void selectRandomGender(){
         getRandomElement(allGenders).click();
+    }
+
+    public void selectRandomExperience(){
+        getRandomElement(experience).click();
+    }
+
+    public void selectRandomProfession(){
+        getRandomElement(professions).click();
     }
 
     public void selectMale(){
