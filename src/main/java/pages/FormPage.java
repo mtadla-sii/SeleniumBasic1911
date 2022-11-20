@@ -44,60 +44,40 @@ public class FormPage {
     private WebElement fileInput;
 
 
-
-
-
-
+    @FindBy(className = "btn-primary")
+    private WebElement sendFormBtn;
 
     @FindBy(id = "validator-message")
     private WebElement validatorLabel;
 
-    public String getValidatorMsg(){
+
+    public void sendForm() {
+        sendFormBtn.click();
+    }
+
+    public String getValidatorMsg() {
         return validatorLabel.getText();
     }
 
 
-
-
-
-
-
-
-
-
-
-    public void uploadFile(File file){
+    public void uploadFile(File file) {
         fileInput.sendKeys(file.getAbsolutePath());
     }
 
 
-
-
-
-
-
-
-
-
-
-    public void selectContinent(String continentValue){
+    public void selectContinent(String continentValue) {
         new Select(continentsSelect).selectByValue(continentValue);
     }
 
-    public void selectSeleniumCommands(String command){
+    public void selectSeleniumCommands(String command) {
         new Select(selectSeleniumCommands).selectByValue(command);
     }
 
-    public void selectSeleniumCommands(String[] commands){
-        for (String command : commands){
+    public void selectSeleniumCommands(String[] commands) {
+        for (String command : commands) {
             selectSeleniumCommands(command);
         }
     }
-
-
-
-
-
 
 
     public void selectRandomGender() {

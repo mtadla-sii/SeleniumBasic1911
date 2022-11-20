@@ -11,6 +11,7 @@ public class FormPopTest extends TestBase {
         driver.get("http://51.75.61.161:9102/form.php");
 
         FormPage formPage = new FormPage(driver);
+        File file = new File("src/main/resources/file.txt");
 
         formPage.setFirstName("Jan");
         formPage.setLastName("Kowalski");
@@ -20,24 +21,10 @@ public class FormPopTest extends TestBase {
         formPage.selectRandomExperience();
         formPage.selectRandomProfession();
         formPage.selectContinent("europe");
-
-        formPage.selectSeleniumCommands(new String[]{"navigation-commands" ,"wait-commands"});
-
-        File file = new File("src/main/resources/file.txt");
+        formPage.selectSeleniumCommands(new String[]{"navigation-commands", "wait-commands"});
         formPage.uploadFile(file);
-
-
-
-
-
-
-
-
-
-
+        formPage.sendForm();
 
         Assert.assertEquals(formPage.getValidatorMsg(), "Form send with success");
-
-
     }
 }
